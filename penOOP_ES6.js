@@ -29,6 +29,7 @@ pen.type();
 
 class AutoPen extends Pen() {
     constructor (size, color, material, ink, inkColor) {
+        super(size, color, material, ink, inkColor);
         this.type = "Autopen";
     }
     
@@ -48,6 +49,36 @@ class AutoPen extends Pen() {
     };
 }
 
-var autopen = new autoPen("medium", "black", "metal", "oil", "green");
+var autopen = new AutoPen("medium", "black", "metal", "oil", "green");
 autopen.type();
 autopen.openClose();
+
+
+//////////////////////////////////////////////////////////////////
+
+
+class AutoPencil extends AutoPen {
+    constructor (size, color, material, ink, inkColor){
+        super(size, color, material, ink, inkColor);
+        this.type = "autopencil";
+    }
+
+    get type() {
+        super.type();
+    }
+    
+    openClose() {
+        super.openClose();
+    }
+
+    replaceRod (newRod) {
+        this.inkType = newRod;
+        this.inkColor = "grey";
+        console.log("Pencil is ready to draw or write!");
+    };
+}
+
+var Autopencil = new autoPencil("small", "brown", "wood");
+autopencil.replaceRod("graphite");
+autopencil.getType();
+autopencil.openClose();
