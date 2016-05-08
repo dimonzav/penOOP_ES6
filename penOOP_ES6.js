@@ -24,3 +24,30 @@ var pen = new Pen("big", "red", "metal", "gel", "black");
 pen.description();
 pen.write();
 pen.type();
+
+////////////////////////////////////////////////////////////////
+
+class AutoPen extends Pen() {
+    constructor (size, color, material, ink, inkColor) {
+        this.type = "Autopen";
+    }
+    
+    get type() {
+        super.type();
+    }
+
+    openClose () {
+        var status = prompt("Want to write something? Yes or No");
+        if (status == "yes") {
+            console.log("Ready to write something");
+            this.write();
+        }
+        else if (status == "no") {
+            console.log("Maybe another time...");
+        }
+    };
+}
+
+var autopen = new autoPen("medium", "black", "metal", "oil", "green");
+autopen.type();
+autopen.openClose();
