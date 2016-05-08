@@ -82,3 +82,34 @@ var Autopencil = new autoPencil("small", "brown", "wood");
 autopencil.replaceRod("graphite");
 autopencil.getType();
 autopencil.openClose();
+
+
+///////////////////////////////////////////////////////////////
+
+
+class ColoredPen extends AutoPencil {
+    constructor (size, color, material, ink, inkColor){
+        super(size, color, material, ink, inkColor);
+        this.type = "colored pen";
+    }
+
+    get type() {
+        super.type();
+    }
+    
+    openClose() {
+        super.openClose();
+    }
+    
+    setManyColors (color1, color2, color3, color4) {
+        this.inkColor = color1;
+        this.inkColor2 = color2;
+        this.inkColor3 = color3;
+        this.inkColor4 = color4;
+    };
+}
+
+var coloredPen = new ColoredPen("medium", "black", "metal", "oil");
+coloredPen.setManyColors("blue", "red", "green", "orange");
+coloredPen.getType();
+coloredPen.openClose();
